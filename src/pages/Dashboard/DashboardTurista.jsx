@@ -55,7 +55,7 @@ const DashboardTurista = () => {
     if (!user?.token) return;
     setLoadingHistorial(true);
     try {
-      const response = await fetch("https://https://tourmatchterminar-1.onrender.com2.onrender.com/api/reservas/mis-reservas", { 
+      const response = await fetch("https://tourmatchterminar-1.onrender.com://tourmatchterminar-1.onrender.com2.onrender.com/api/reservas/mis-reservas", { 
         method: "GET",
         headers: { "Authorization": `Bearer ${user.token}` }
       });
@@ -209,7 +209,7 @@ const DashboardTurista = () => {
     };
 
     try {
-      const response = await fetch("https://https://tourmatchterminar-1.onrender.com2.onrender.com/api/reservas/crear", { 
+      const response = await fetch("https://tourmatchterminar-1.onrender.com://tourmatchterminar-1.onrender.com2.onrender.com/api/reservas/crear", { 
         method: "POST",
         headers: { "Content-Type": "application/json", "Authorization": `Bearer ${user.token}` },
         body: JSON.stringify(nuevaReserva)

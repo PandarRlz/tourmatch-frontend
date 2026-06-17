@@ -26,7 +26,7 @@ const DashboardAdmin = () => {
     if (!user?.token) return;
     setLoading(true);
     try {
-      const response = await fetch("https://https://tourmatchterminar-1.onrender.com2.onrender.com/api/admin/conductores", {
+      const response = await fetch("https://tourmatchterminar-1.onrender.com://tourmatchterminar-1.onrender.com2.onrender.com/api/admin/conductores", {
         headers: { "Authorization": `Bearer ${user.token}` }
       });
       if (response.ok) {
@@ -44,7 +44,7 @@ const DashboardAdmin = () => {
     if (!user?.token) return;
     setLoading(true);
     try {
-      const response = await fetch("https://https://tourmatchterminar-1.onrender.com2.onrender.com/api/admin/turistas", {
+      const response = await fetch("https://tourmatchterminar-1.onrender.com://tourmatchterminar-1.onrender.com2.onrender.com/api/admin/turistas", {
         headers: { "Authorization": `Bearer ${user.token}` }
       });
       if (response.ok) {
@@ -62,7 +62,7 @@ const DashboardAdmin = () => {
     if (!user?.token) return;
     setLoading(true);
     try {
-      const response = await fetch("https://https://tourmatchterminar-1.onrender.com2.onrender.com/api/admin/reservas", {
+      const response = await fetch("https://tourmatchterminar-1.onrender.com://tourmatchterminar-1.onrender.com2.onrender.com/api/admin/reservas", {
         headers: { "Authorization": `Bearer ${user.token}` }
       });
       if (response.ok) {
@@ -95,7 +95,7 @@ const DashboardAdmin = () => {
 
   const ejecutarEliminar = async (id, tipo) => {
     if (!window.confirm(`¿Estás completamente seguro de eliminar el registro #${id}?`)) return;
-    const url = tipo === 'reserva' ? `https://https://tourmatchterminar-1.onrender.com2.onrender.com/api/admin/reservas/${id}` : `https://https://tourmatchterminar-1.onrender.com2.onrender.com/api/admin/usuarios/${id}`;
+    const url = tipo === 'reserva' ? `https://tourmatchterminar-1.onrender.com://tourmatchterminar-1.onrender.com2.onrender.com/api/admin/reservas/${id}` : `https://tourmatchterminar-1.onrender.com://tourmatchterminar-1.onrender.com2.onrender.com/api/admin/usuarios/${id}`;
     try {
       const response = await fetch(url, {
         method: 'DELETE',
@@ -142,7 +142,7 @@ const DashboardAdmin = () => {
     }
 
     try {
-      const response = await fetch(`https://https://tourmatchterminar-1.onrender.com2.onrender.com/api/admin/usuarios/${usuarioAEditar.id}`, {
+      const response = await fetch(`https://tourmatchterminar-1.onrender.com://tourmatchterminar-1.onrender.com2.onrender.com/api/admin/usuarios/${usuarioAEditar.id}`, {
         method: 'PUT',
         headers: {
           "Authorization": `Bearer ${user.token}`,
