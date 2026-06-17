@@ -145,7 +145,7 @@ const Panoramas = () => {
       setLoadingId(ruta.id);
       setMensaje({ texto: '', tipo: '' });
 
-      const response = await fetch("https://tourmatchterminar-2.onrender.com/api/reservas/crear", {
+      const response = await fetch("https://https://tourmatchterminar-1.onrender.com2.onrender.com/api/reservas/crear", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

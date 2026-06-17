@@ -28,7 +28,7 @@ const RegistrarVehiculo = ({ onRegistroExitoso }) => {
     setMensaje({ texto: '', tipo: '' });
     
     try {
-      const response = await fetch("https://tourmatchterminar-2.onrender.com/api/vehiculos/registrar", {
+      const response = await fetch("https://https://tourmatchterminar-1.onrender.com2.onrender.com/api/vehiculos/registrar", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
