@@ -1,0 +1,115 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* El min-height asegura que si el formulario crece (al ser conductor), 
+     el fondo se mantenga y no se corte */
+  min-height: calc(100vh - 80px); 
+  background-color: #f1f5f9;
+  padding: 2rem;
+}
+
+.registerCard {
+  background: white;
+  padding: 2.5rem;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+  width: 100%;
+  max-width: 500px; /* Lo subí un poquito para los campos dobles */
+}
+
+.registerCard h2 {
+  color: #1e293b; /* Reemplacé var(--dark) por un color sólido por si no tienes la variable */
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
+.registerCard p {
+  color: #64748b;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+/* --- NUEVA SECCIÓN: Campos de Conductor --- */
+.conductorFields {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  background-color: #f8fafc;
+  padding: 1.5rem;
+  border-radius: 12px;
+  border: 1.5px dashed #2563eb; /* Un borde distintivo para el área de vehículo */
+  margin: 0.5rem 0;
+  animation: slideIn 0.4s ease-out;
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+/* ----------------------------------------- */
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.inputGroup label {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #475569;
+}
+
+.inputGroup input, 
+.inputGroup select {
+  padding: 0.8rem;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: all 0.3s;
+}
+
+.inputGroup input:focus, 
+.inputGroup select:focus {
+  outline: none;
+  border-color: #2563eb; /* Reemplacé var(--primary) */
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.registerBtn {
+  background-color: #2563eb; /* Reemplacé var(--primary) */
+  color: white;
+  border: none;
+  padding: 1rem;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+  margin-top: 0.5rem;
+}
+
+.registerBtn:hover {
+  background-color: #1d4ed8; /* Reemplacé var(--secondary) */
+  transform: translateY(-2px);
+}
+
+.footer {
+  margin-top: 1.5rem;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #64748b;
+}
+
+.footer a {
+  color: #2563eb;
+  text-decoration: none;
+  font-weight: 600;
+}

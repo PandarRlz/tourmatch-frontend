@@ -1,0 +1,20 @@
+:root {
+  --primary: #2563eb;    /* Azul TourMatch */
+  --secondary: #3b82f6;
+  --accent: #f59e0b;     /* Naranja para botones de acción */
+  --dark: #1e293b;
+  --light: #f8fafc;
+  --white: #ffffff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background-color: var(--light);
+  color: var(--dark);
+}

@@ -1,0 +1,116 @@
+.container {
+  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  color: #2d3748;
+  background-color: #f7fafc;
+  min-height: 100vh;
+  padding-bottom: 80px;
+}
+
+/* --- Hero Header --- */
+.headerSection {
+  background: linear-gradient(135deg, #1a365d 0%, #2b6cb0 100%);
+  color: white;
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.headerSection h1 {
+  font-size: 3rem;
+  margin: 0 0 16px 0;
+  font-weight: 800;
+  letter-spacing: -1px;
+}
+
+.subtitle {
+  font-size: 1.25rem;
+  max-width: 700px;
+  margin: 0 auto;
+  opacity: 0.9;
+  line-height: 1.6;
+}
+
+/* --- Grid de Panoramas --- */
+.mainContent {
+  max-width: 1200px;
+  margin: 50px auto 0 auto;
+  padding: 0 20px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 35px;
+}
+
+/* --- Envoltorio de cada Item --- */
+.cardWrapper {
+  background: white;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.03);
+  border: 1px solid #edf2f7;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cardWrapper:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+}
+
+/* --- Contenedor de Paradas / Itinerario --- */
+.stopsBadge {
+  background-color: #f8fafc;
+  padding: 16px 20px;
+  border-top: 1px dashed #e2e8f0;
+  border-bottom: 1px solid #edf2f7;
+  flex-grow: 1; /* Asegura que todos los bloques midan lo mismo */
+}
+
+.badgeTitle {
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: #4a5568;
+  letter-spacing: 1px;
+  display: block;
+  margin-bottom: 6px;
+}
+
+.stopsText {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: #2b6cb0;
+  font-weight: 600;
+}
+
+/* --- Botón de Reserva --- */
+.actionContainer {
+  padding: 20px;
+  background-color: #fff;
+}
+
+.bookBtn {
+  font-family: inherit;
+  width: 100%;
+  font-size: 1rem;
+  font-weight: 700;
+  color: white;
+  background-color: #3182ce;
+  border: none;
+  padding: 12px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+  box-shadow: 0 4px 12px rgba(49, 130, 206, 0.2);
+}
+
+.bookBtn:hover {
+  background-color: #2b6cb0;
+}
+
+.bookBtn:active {
+  transform: scale(0.98);
+}

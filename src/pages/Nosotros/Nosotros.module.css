@@ -1,0 +1,165 @@
+.container {
+  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  color: #2d3748;
+  background-color: #f7fafc;
+  min-height: 100vh;
+  padding-bottom: 60px;
+}
+
+/* --- Hero Section --- */
+.heroSection {
+  background: linear-gradient(135deg, #1a365d 0%, #2b6cb0 100%);
+  color: white;
+  padding: 80px 20px;
+  text-align: center;
+  position: relative;
+}
+
+.heroSection h1 {
+  font-size: 3rem;
+  margin: 0 0 16px 0;
+  font-weight: 800;
+  letter-spacing: -1px;
+}
+
+.subtitle {
+  font-size: 1.25rem;
+  max-width: 650px;
+  margin: 0 auto;
+  opacity: 0.9;
+  line-height: 1.6;
+}
+
+/* --- Bloque Principal --- */
+.mainContent {
+  max-width: 1100px;
+  margin: 60px auto;
+  padding: 0 20px;
+}
+
+.gridTwoColumns {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 50px;
+  align-items: center;
+}
+
+@media (max-width: 768px) {
+  .gridTwoColumns {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+}
+
+.tagline {
+  color: #3182ce;
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 2px;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.textBlock h2 {
+  font-size: 2.2rem;
+  color: #1a202c;
+  margin: 0 0 20px 0;
+  line-height: 1.2;
+}
+
+.textBlock p {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #4a5568;
+  margin-bottom: 16px;
+}
+
+/* --- Estadísticas a la derecha --- */
+.statsBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.statCard {
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+  text-align: center;
+  border-left: 5px solid #3182ce;
+}
+
+.statCard h3 {
+  font-size: 2.5rem;
+  margin: 0 0 4px 0;
+  color: #2b6cb0;
+}
+
+.statCard p {
+  margin: 0;
+  font-weight: 600;
+  color: #718096;
+}
+
+/* --- Sección de Valores / Cards --- */
+.valuesSection {
+  max-width: 1100px;
+  margin: 80px auto 20px auto;
+  padding: 0 20px;
+}
+
+.sectionTitle {
+  font-size: 1.8rem;
+  text-align: center;
+  color: #1a202c;
+  margin-bottom: 40px;
+  font-weight: 700;
+}
+
+.cardsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+}
+
+.valueCard {
+  background: white;
+  padding: 40px 30px;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.03);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: center;
+}
+
+.valueCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+}
+
+.iconWrapper {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  background: #ebf8ff;
+  width: 70px;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 50%;
+}
+
+.valueCard h4 {
+  font-size: 1.3rem;
+  margin: 0 0 12px 0;
+  color: #2d3748;
+}
+
+.valueCard p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #718096;
+  margin: 0;
+}
