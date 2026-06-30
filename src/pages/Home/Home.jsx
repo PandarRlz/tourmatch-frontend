@@ -17,7 +17,6 @@ const Home = () => {
           </p>
           
           <div className={styles.heroButtons}>
-            {/* 🎯 CORREGIDO: Redirige directamente al catálogo unificado de Panoramas */}
             <Link to="/panoramas" className={styles.primaryBtn}>
               Ver Panoramas y Rutas 🚗
             </Link>
@@ -64,6 +63,30 @@ const Home = () => {
           <Link to="/registro" className={styles.driverBtn}>
             Postular como Conductor ➔
           </Link>
+        </div>
+      </section>
+
+      {/* 4. SECCIÓN: CÓMO NACIÓ TOURMATCH (NUEVA) */}
+      <section className={styles.historiaSection}>
+        <div className={styles.historiaContainer}>
+          <h2>¿Cómo nació TourMatch?</h2>
+          <p>
+            La idea de TourMatch surgió de una experiencia muy personal. Cuando amigos extranjeros 
+            visitaban Chile, notamos que no tenían idea de qué panoramas realizar o cómo acceder a precios 
+            justos y accesibles para conocer lugares increíbles cerca de Santiago, Viña del Mar o el 
+            imponente Embalse del Yeso.
+          </p>
+          <p>
+            Queríamos mostrarle al mundo lo lindo que es nuestro país. Así concluimos que la mejor 
+            forma de hacerlo era creando un puente directo: una plataforma que ayude a conectar a 
+            conductores locales de confianza con turistas que buscan aventuras. TourMatch es economía 
+            justa para el conductor y una experiencia segura y maravillosa para el pasajero.
+          </p>
+        </div>
+        
+        <div className={styles.creditosFooter}>
+          <p>Desarrollado con ❤️ por <strong>Felipe Villalón</strong> y <strong>[Nombre de tu Compañero]</strong></p>
+          <p>&copy; 2026 TourMatch - Proyecto de Análisis de Programación | Duoc UC</p>
         </div>
       </section>
     </div>
