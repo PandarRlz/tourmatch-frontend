@@ -233,6 +233,34 @@ const DashboardTurista = () => {
     }
   };
 
+  // ====================================================================
+  // 🛑 NUEVA FUNCIÓN: CANCELAR VIAJE (LLAMADA A JAVA)
+  // ====================================================================
+  const handleCancelarViaje = async (viajeId) => {
+    if (!window.confirm("¿Estás seguro de que deseas cancelar este traslado? El proceso es irreversible.")) return;
+
+    try {
+      const response = await fetch(`https://tourmatchterminar-1.onrender.com/api/reservas/${viajeId}/cancelar`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": `Bearer ${user.token}`
+        }
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.mensaje || "Error al procesar la cancelación.");
+      }
+
+      alert("El viaje ha sido cancelado de forma exitosa.");
+      consultarHistorial(); // Refrescamos el historial en pantalla
+    } catch (error) {
+      console.error("Error al cancelar viaje:", error);
+      alert(error.message);
+    }
+  };
+
   const nombreFormateado = user?.nombre ? user.nombre.charAt(0).toUpperCase() + user.nombre.slice(1).toLowerCase() : "Pasajero";
 
   // Determinación visual del tipo de vehículo
@@ -302,7 +330,6 @@ const DashboardTurista = () => {
 
                 <div className={styles.inputGroup} style={{ marginBottom: '20px' }}>
                   <label>Cantidad de Pasajeros</label>
-                  {/* 🛑 ESCUDO 3: Límite max="12" aplicado en el HTML */}
                   <input type="number" value={cantidadPasajeros} onChange={(e) => {setCantidadPasajeros(e.target.value); setRutaTrazada(false);}} required min="1" max="12" style={{ width: '100%', padding: '10px', borderRadius: '6px', border: '1px solid #cbd5e1' }} />
                   <small style={{ color: '#64748b', display: 'block', marginTop: '5px' }}>Se asignará vehículo: <strong>{tipoVehiculoRequerido}</strong></small>
                 </div>
@@ -350,7 +377,7 @@ const DashboardTurista = () => {
           </div>
         )}
 
-        {/* ... PESTAÑA DE HISTORIAL MANTIENE TU CÓDIGO ORIGINAL ... */}
+        {/* PESTAÑA DE HISTORIAL CON MODULO DE CANCELACIÓN INTEGRADO */}
         {activeTab === 'historial' && (
           <div className={styles.card}>
             <h2>Historial de Rutas Tomadas</h2>
@@ -372,7 +399,34 @@ const DashboardTurista = () => {
                       </p>
                       <span style={{ fontSize: '0.85rem', color: '#64748b' }}>Pasajeros: {viaje.cantidadPasajeros} | Total: ${viaje.precioTotal.toLocaleString('es-CL')}</span>
                     </div>
-                    <span className={styles.statusBadge}>{viaje.estado}</span>
+                    
+                    {/* ACCIONES Y BADGES */}
+                    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: '8px' }}>
+                      <span className={styles.statusBadge}>{viaje.estado}</span>
+                      
+                      {/* 🛑 NUEVO BOTÓN: CANCELAR VIAJE CONDICIONAL */}
+                      {viaje.estado === "PENDIENTE" && (
+                        <button
+                          onClick={() => handleCancelarViaje(viaje.id)}
+                          style={{
+                            backgroundColor: '#ef4444',
+                            color: 'white',
+                            border: 'none',
+                            padding: '8px 14px',
+                            borderRadius: '6px',
+                            cursor: 'pointer',
+                            fontWeight: 'bold',
+                            fontSize: '0.85rem',
+                            transition: 'background-color 0.2s ease',
+                            boxShadow: '0 2px 4px rgba(239, 68, 68, 0.2)'
+                          }}
+                          onMouseOver={(e) => e.target.style.backgroundColor = '#dc2626'}
+                          onMouseOut={(e) => e.target.style.backgroundColor = '#ef4444'}
+                        >
+                          Cancelar Viaje
+                        </button>
+                      )}
+                    </div>
                   </div>
                 ))
               ) : (

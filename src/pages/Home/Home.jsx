@@ -85,7 +85,7 @@ const Home = () => {
         </div>
         
         <div className={styles.creditosFooter}>
-          <p>Desarrollado con ❤️ por <strong>Felipe Villalón</strong> y <strong>Damian Vergara</strong></p>
+          <p>Desarrollado con ❤️ por <strong>Felipe Villalón</strong> y <strong>[Nombre de tu Compañero]</strong></p>
           <p>&copy; 2026 TourMatch - Proyecto de Análisis de Programación | Duoc UC</p>
         </div>
       </section>
