@@ -1,6 +1,7 @@
 import { useState, useEffect, useCallback, useRef } from 'react';
 import styles from './DashboardTurista.module.css';
 import { useAuth } from '../../context/AuthContext';
+import API_URL from '../../config/api';
 import StatsCard from '../../components/StatsCard/StatsCard';
 
 // INTEGRACIÓN DE MAPBOX DIRECTA
@@ -55,7 +56,7 @@ const DashboardTurista = () => {
     if (!user?.token) return;
     setLoadingHistorial(true);
     try {
-      const response = await fetch("https://tourmatchterminar-1.onrender.com/api/reservas/mis-reservas", { 
+      const response = await fetch(`${API_URL}/api/reservas/mis-reservas`, { 
         method: "GET",
         headers: { "Authorization": `Bearer ${user.token}` }
       });
@@ -209,7 +210,7 @@ const DashboardTurista = () => {
     };
 
     try {
-      const response = await fetch("https://tourmatchterminar-1.onrender.com/api/reservas/crear", { 
+      const response = await fetch(`${API_URL}/api/reservas/crear`, { 
         method: "POST",
         headers: { "Content-Type": "application/json", "Authorization": `Bearer ${user.token}` },
         body: JSON.stringify(nuevaReserva)
@@ -240,7 +241,7 @@ const DashboardTurista = () => {
     if (!window.confirm("¿Estás seguro de que deseas cancelar este traslado? El proceso es irreversible.")) return;
 
     try {
-      const response = await fetch(`https://tourmatchterminar-1.onrender.com/api/reservas/${viajeId}/cancelar`, {
+      const response = await fetch(`${API_URL}/api/reservas/${viajeId}/cancelar`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",

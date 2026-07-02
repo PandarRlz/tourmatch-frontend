@@ -2,6 +2,7 @@ import { useState } from 'react';
 import styles from './Panoramas.module.css';
 import Card from '../../components/Card/Card';
 import { useAuth } from '../../context/AuthContext';
+import API_URL from '../../config/api';
 
 const Panoramas = () => {
   const { user } = useAuth();
@@ -145,7 +146,7 @@ const Panoramas = () => {
       setLoadingId(ruta.id);
       setMensaje({ texto: '', tipo: '' });
 
-      const response = await fetch("https://tourmatchterminar-1.onrender.com/api/reservas/crear", {
+      const response = await fetch(`${API_URL}/api/reservas/crear`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

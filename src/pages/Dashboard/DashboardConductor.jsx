@@ -1,6 +1,7 @@
 import { useState, useEffect, useCallback } from 'react';
 import styles from './DashboardConductor.module.css';
 import { useAuth } from '../../context/AuthContext';
+import API_URL from '../../config/api';
 import StatsCard from '../../components/StatsCard/StatsCard';
 import RegistrarVehiculo from '../Registro/RegistrarVehiculo';
 import MapaVisualizador from '../../components/buscadorRuta/MapaVisualizador';
@@ -19,7 +20,7 @@ const DashboardConductor = () => {
   const consultarVehiculo = useCallback(async () => {
     if (!user?.token) return;
     try {
-      const response = await fetch("https://tourmatchterminar-1.onrender.com/api/vehiculos/mi-vehiculo", {
+      const response = await fetch(`${API_URL}/api/vehiculos/mi-vehiculo`, {
         headers: { "Authorization": `Bearer ${user.token}` }
       });
       if (response.status === 200) {
@@ -33,7 +34,7 @@ const DashboardConductor = () => {
     if (!user?.token) return;
     setLoadingViajes(true);
     try {
-      const response = await fetch(`https://tourmatchterminar-1.onrender.com/api/reservas/disponibles?capacidad=4`, {
+      const response = await fetch(`${API_URL}/api/reservas/disponibles?capacidad=4`, {
         headers: { "Authorization": `Bearer ${user.token}` }
       });
       if (response.ok) setViajesDisponibles(await response.json());
@@ -43,7 +44,7 @@ const DashboardConductor = () => {
   const consultarViajesActivos = useCallback(async () => {
     if (!user?.token) return;
     try {
-      const response = await fetch(`https://tourmatchterminar-1.onrender.com/api/reservas/mis-viajes-conductor`, {
+      const response = await fetch(`${API_URL}/api/reservas/mis-viajes-conductor`, {
         headers: { "Authorization": `Bearer ${user.token}` }
       });
       if (response.ok) setViajesActivos(await response.json());
@@ -62,7 +63,7 @@ const DashboardConductor = () => {
   const handleAceptarViaje = async (id) => {
     if (!user?.token) return;
     try {
-      const response = await fetch(`https://tourmatchterminar-1.onrender.com/api/reservas/${id}/aceptar`, {
+      const response = await fetch(`${API_URL}/api/reservas/${id}/aceptar`, {
         method: "PUT", headers: { "Authorization": `Bearer ${user.token}` }
       });
       if (response.ok) {
@@ -81,7 +82,7 @@ const DashboardConductor = () => {
   const handleFinalizarViaje = async (id, ganancia) => {
     if (!user?.token) return;
     try {
-      const response = await fetch(`https://tourmatchterminar-1.onrender.com/api/reservas/${id}/finalizar`, {
+      const response = await fetch(`${API_URL}/api/reservas/${id}/finalizar`, {
         method: "PUT", headers: { "Authorization": `Bearer ${user.token}` }
       });
       if (response.ok) {

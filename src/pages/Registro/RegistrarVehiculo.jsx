@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import { useAuth } from '../../context/AuthContext'; 
+import { useAuth } from '../../context/AuthContext';
+import API_URL from '../../config/api';
 import styles from './RegistrarVehiculo.module.css';
 
 const RegistrarVehiculo = ({ onRegistroExitoso }) => {
@@ -28,7 +29,7 @@ const RegistrarVehiculo = ({ onRegistroExitoso }) => {
     setMensaje({ texto: '', tipo: '' });
     
     try {
-      const response = await fetch("https://tourmatchterminar-1.onrender.com/api/vehiculos/registrar", {
+      const response = await fetch(`${API_URL}/api/vehiculos/registrar`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

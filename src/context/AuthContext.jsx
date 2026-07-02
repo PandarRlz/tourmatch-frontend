@@ -1,4 +1,5 @@
 import { createContext, useState, useContext, useEffect } from 'react';
+import API_URL from '../config/api';
 
 const AuthContext = createContext();
 
@@ -18,7 +19,7 @@ export const AuthProvider = ({ children }) => {
   // --- FUNCIÓN DE REGISTRO ---
   const register = async (nombre, email, password, rol) => {
     try {
-      const response = await fetch("https://tourmatchterminar-1.onrender.com/api/auth/registro", {
+      const response = await fetch(`${API_URL}/api/auth/registro`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ nombre, email, password, rol })
@@ -54,7 +55,7 @@ export const AuthProvider = ({ children }) => {
   // --- FUNCIÓN DE LOGIN ---
   const login = async (email, password) => {
     try {
-      const response = await fetch("https://tourmatchterminar-1.onrender.com/api/auth/login", {
+      const response = await fetch(`${API_URL}/api/auth/login`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, password })
